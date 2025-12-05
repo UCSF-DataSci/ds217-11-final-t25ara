@@ -1,0 +1,85 @@
+DATA CLEANING REPORT
+====================
+Rows Before Cleaning:196381
+====================
+Data Type Conversions:
+- Measurement Timestamp: Converted from object to datetime64[ns]
+
+====================
+Duplicates Removed:0
+====================
+Handling Missing Data:
+- Air Temperature: 75 missing values
+  Method: Forward Fill, likely similar to previous measurement
+  Result: All missing values filled
+
+- Barometric Pressure: 146 missing values
+  Method: Forward Fill, likely similar to previous measurement
+  Result: All missing values filled
+
+- Rain Intensity: 75981 missing values
+  Method: Filled with 0 (absence of rain is expected)
+  Result: All missing values filled
+
+- Total Rain: 75981 missing values
+  Method: Filled with 0 (absence of rain is expected)
+  Result: All missing values filled
+
+- Interval Rain: 75981 missing values
+  Method: Filled with 0 (absence of rain is expected)
+  Result: All missing values filled
+
+- Precipitation Type: 75981 missing values
+  Method: Filled with 0 (no precipitation)
+  Result: All missing values filled
+
+- Wet Bulb Temperature: 75981 missing values
+  Method: Filled with 0 (no rain no wet bulb)
+  Result: All missing values filled
+
+- Heading: 75981 missing values
+  Method: Forward Fill, likely similar to previous measurement
+  Result: All missing values filled
+
+- Wind Speed: 5 missing values
+  Method: Forward Fill, likley similar to previous measurement
+  Result: All missing values filled
+
+- Maximum Wind Speed: 5 missing values
+  Method: Forward Fill, likley similar to previous measurement
+  Result: All missing values filled
+
+- Solar Radiation: 13425 missing values
+  Method: Mean, there was too many to forward fill so hope mean will suffice
+  Result: All missing values filled
+
+====================
+Outlier Handling:
+
+- Solar Radiation: Detected values < 0
+  Method: Replaced with NaN, then interpolated
+  Invalid values: Negative values including -100000
+  Result: Invalid values corrected
+
+- Interval Rain: Detected values < 0
+  Method: Replaced with NaN, then filled with 0
+  Invalid values: Negative values
+  Result: Invalid values corrected
+
+- Wind Speed: Detected values > 200 mph
+  Method: Replaced with NaN, then interpolated
+  Invalid values: Sentinel value 999.9
+  Result: Invalid values corrected
+
+- Maximum Wind Speed: Detected values > 200 mph
+  Method: Replaced with NaN, then interpolated
+  Invalid values: Sentinel value 999.9
+  Result: Invalid values corrected
+
+- Barometric Pressure: Detected values outside [900, 1100] hPa
+  Method: Replaced with NaN, then interpolated
+  Invalid values: Values 0.0 and 3098.5
+  Result: Invalid values corrected
+
+====================
+ALL MISSING DATA WAS HANDLED
