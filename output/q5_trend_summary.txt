@@ -1,0 +1,41 @@
+KEY PATTERNS IDENTIFIED
+
+=======================
+
+TEMPORAL TRENDS:
+- Air temperature shows clear seasonal patterns with strong yearly cycles
+- Higher temperatures in summer months, peaking around 20-25°C
+- Lower temperatures in winter months, dropping to approximately 0-5°C
+- Monthly air temperature range: approximately -5°C to 25°C
+
+- Wind speed shows a gradual decreasing trend over the 10-year period
+- Wind speeds declined from average of 3.5-4.5 mps (2016-2018) to 2.5-3.0 mps (2022-2026)
+- Wind patterns show moderate seasonal variation with slightly higher speeds in winter months
+
+- Total rainfall displays high variability 
+- Several extreme rainfall events visible, particularly in 2016-2018 period (400+ mm)
+- Rainfall frequency and intensity appear to decrease in later years (2020-2026)
+
+- Barometric pressure remains relatively stable throughout the period
+- Pressure fluctuates within a narrow range of approximately 990-1000 hPa
+- No clear long term increasing or decreasing trend observed
+
+SEASONAL PATTERNS:
+- Air temperature exhibits strong annual cyclicity with consistent amplitude
+- Temperature oscillations show predictable seasonal pattern repeating yearly
+- Wind speed shows weaker seasonal patterns compared to temperature
+- Rainfall events appear sporadic without clear monthly or seasonal regularity
+- Barometric pressure shows minor fluctuations without strong seasonal patterns
+
+CORRELATIONS:
+Strongest Positive Correlations:
+- Air Temperature vs Total Rain: 0.33 (moderate positive correlation)
+  Higher temperatures associated with increased rainfall events
+- Humidity vs Total Rain: 0.14 (weak positive correlation)
+
+Strongest Negative Correlations:
+- Air Temperature vs Barometric Pressure: -0.25 (weak-moderate negative correlation)
+  Lower pressure tends to occur with higher temperatures
+- Air Temperature vs Wind Speed: -0.22 (weak-moderate negative correlation)
+  Wind speeds slightly decrease as temperatures increase
+- Humidity vs Barometric Pressure: -0.19 (weak negative correlation)
