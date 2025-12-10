@@ -4,7 +4,7 @@
 
 ## 1. Executive Summary
 
-This project used weather sensor data from Chicago beaches on Lake Michigan from April 1015 to November 2025. The analysis was divided into a 9-part work flow to understand seasonal and temporal patterns in weather in order to build a predictice model for air temperature. Mulitple models were tested:linear regression, random forest, and XGBoost. Out of all the models XGBoost had the best performance (R^2 = 0.2844), with linear regression coming in second (R^2 = 0.1790).
+This project used weather sensor data from Chicago beaches on Lake Michigan from April 2015 to November 2025. The analysis was divided into a 9-part work flow to understand seasonal and temporal patterns in weather in order to build a predictive model for air temperature. Multiple models were tested:linear regression, random forest, and XGBoost. Out of all the models XGBoost had the best performance (R^2 = 0.2844), with linear regression coming in second (R^2 = 0.1790).
 
 ---
 
@@ -12,7 +12,7 @@ This project used weather sensor data from Chicago beaches on Lake Michigan from
 
 ### Phase 1-2 (Q1): Exploration Findings, Data Quality Issues
 
-Data started with 196,381 rows and 18 columns with various measurements including: humidity, air temperature, barometric pressure, solar radiatio, wind speed, wind direction, and more. The data includes hourly measurements from April 2015 to November 2025 taken at three weather stations. Data quality issues were identified. The largest amount of missing values were in rain/percipitation related measurements, with ~37% of their values missing. Rain intensity, Total rain, Percipitation Type, Wet Bulb Temperature, and Heading all had 75,981 values missing. Other columns also had values missing, but overal less than 10% of the their total rows. Depending on value missing data was either forward filled, mean filled, or filled with 0. No duplicates were found.
+Data started with 196,381 rows and 18 columns with various measurements including: humidity, air temperature, barometric pressure, solar radiation, wind speed, wind direction, and more. The data includes hourly measurements from April 2015 to November 2025 taken at three weather stations. Data quality issues were identified. The largest amount of missing values were in rain/precipitation related measurements, with ~37% of their values missing. Rain intensity, Total rain, precipitation Type, Wet Bulb Temperature, and Heading all had 75,981 values missing. Other columns also had values missing, but overall less than 10% of the their total rows. Depending on value missing data was either forward filled, mean filled, or filled with 0. No duplicates were found.
 
 ![Figure 1: Initial Data Exploration](output/q1_visualizations.png)
 *Figure 1: Initial exploration visualizations showing distributions of air temperature, air temperature time series*
@@ -46,10 +46,10 @@ Data started with 196,381 rows and 18 columns with various measurements includin
   - Method: Forward Fill, likely similar to previous measurement
   - Result: All missing values filled
 - Wind Speed: 5 missing values
-  - Method: Forward Fill, likley similar to previous measurement
+  - Method: Forward Fill, likely similar to previous measurement
   - Result: All missing values filled
 - Maximum Wind Speed: 5 missing values
-  - Method: Forward Fill, likley similar to previous measurement
+  - Method: Forward Fill, likely similar to previous measurement
   - Result: All missing values filled
 - Solar Radiation: 13425 missing values
   - Method: Mean, there was too many to forward fill so hope mean will suffice
@@ -73,11 +73,11 @@ Data started with 196,381 rows and 18 columns with various measurements includin
   - Method: Replaced with NaN, then interpolated with forward fill
   - Invalid values: Values 0.0 and 3098.5
 
-We were able to maintain the full data set while addressing the large number of missing values in many measurements. The missing 37% of data suggests there was some error in sensor collecting data specific to rain/precipitiation.
+The full data set was maintained while addressing the large number of missing values in many measurements. The missing 37% of data suggests there was some error in sensor collecting data specific to rain/precipitiation.
 
 ### Phase 4 (Q3): Datetime Parsing, Temporal Features Extracted
 
-Datetime parsing and temporal feature extraction was conducted for analysis. The column 'Measurement Timestamp' was set as index and used to extract temporal features and preform temporal analysis. Date Range After Datetime Parsin starts at 2015-04-25 09:00:00 and ends at 2025-12-04 20:00:00 for a duration of 3876 days.
+Datetime parsing and temporal feature extraction was conducted for analysis. The column 'Measurement Timestamp' was set as index and used to extract temporal features and preform temporal analysis. Date Range After Datetime Parsing starts at 2015-04-25 09:00:00 and ends at 2025-12-04 20:00:00 for a duration of 3876 days.
 
 Temporal features extracted include: Measurement Timestamp, hour, day_name (monday-sunday), day_of_week (0-6), month, year, is_weekend (binary, 0 = no, 1 = yes).
 
@@ -103,11 +103,11 @@ Target variable was Air Temperature. Only rolling windows of predictor variables
 
 **TEMPORAL TRENDS:**
 
-Air temperature shows clear seasonal patterns with strong yearly cycles, with higher temperatures in summer months, peaking around 20-25°C. Winter saw lower temperatures, dropping to approximately 0-5°C. Wind speed shows a gradual decreasing trend over the 10-year period. Wind patterns show moderate seasonal variation with slightly higher speeds in winter months. Total rainfall is highly variable, with several extreme rainfall events visible, particularly in 2016-2018 period (400+ mm). However, rainfall frequency and intensity appear to decrease in later years (2020-2026). Barometric pressure remains relatively stable throughout the period, fluctuating within a narrow range of approximately 990-1000 hPa.
+Air temperature shows seasonal patterns and yearly cycles, with higher temperatures in summer months, peaking around 20-25°C. Winter saw lower temperatures, dropping to around 0-5°C. Wind speed shows a gradual decreasing trend over the 10-year period. Wind patterns show variation by season with slightly higher speeds in winter months. Total rainfall is variable, with several extreme rainfall events, such as in 2016-2018 period (400+ mm). However, rainfall frequency and intensity decrease in later years (2020-2026). Barometric pressure remains relatively stable throughout, fluctuating within a narrow range of approximately 990-1000 hPa.
 
 **SEASONAL PATTERNS:**
 
-Air temperature has strong annual cyclicity with consistent amplitude, the oscillations show predictable seasonal pattern repeating yearly. Wind speed shows weaker seasonal patterns compared to temperature. Barometric pressure shows minor fluctuations without strong seasonal patterns.
+Air temperature has annual cyclic pattern with consistent amplitude, the oscillations show a predictable seasonal pattern repeating yearly. Wind speed shows weaker seasonal patterns compared to temperature. Barometric pressure shows minor fluctuations without strong seasonal patterns.
 
 **CORRELATIONS:**
 
@@ -116,8 +116,8 @@ Strongest Positive Correlations:
 - Humidity vs Total Rain: 0.14 (weak positive correlation)
 
 Strongest Negative Correlations:
-- Air Temperature vs Barometric Pressure: -0.25 (weak-moderate negative correlation) - Lower pressure tends to occur with higher temperatures
-- Air Temperature vs Wind Speed: -0.22 (weak-moderate negative correlation) - Wind speeds slightly decrease as temperatures increase
+- Air Temperature vs Barometric Pressure: -0.25 (weak/moderate negative correlation) - Lower pressure tends to occur with higher temperatures
+- Air Temperature vs Wind Speed: -0.22 (weak/moderate negative correlation) - Wind speeds decrease as temperatures increase
 - Humidity vs Barometric Pressure: -0.19 (weak negative correlation)
 
 ![Figure 2: Pattern Analysis](output/q5_patterns.png)
@@ -177,7 +177,7 @@ RANDOM FOREST:
 7. Rain Intensity - 0.0
 8. Maximum Wind Speed - 0.0
 
-Month feature accounts for majority of feature importance (67%). This naturally is understood as months are indicative of the season, and therefore strong predictors of temperature. The top 3 features account for 89% of total importance.
+Month feature accounts for majority of feature importance (67%). This is intuitive as months are generally indicative of the season, and therefore strong predictors of temperature. The top 3 features account for 89% of total importance.
 
 ![Figure 3: Model Performance](output/q8_final_visualizations.png)
 *Figure 3: Final visualizations showing model performance comparison, Linear Regression predictions vs actual values, feature importance, and prediction vs actual for best-performing XGBoost model.*
@@ -192,9 +192,9 @@ Final visualizations were created to summarize model performance and key finding
 
 All visualizations are embedded throughout the report in their respective phases:
 
-1. **Figure 1:** Initial Data Exploration - Shows distributions of air temperature and time series (Phase 1-2)
-2. **Figure 2:** Pattern Analysis - Monthly trends for temperature, wind speed, rain, and pressure with correlation heatmap (Phase 6)
-3. **Figure 3:** Model Performance - Model comparison, predictions vs actual, and feature importance (Phase 8)
+1. **Figure 1:** Initial Data Exploration - Shows distributions of air temperature and time series 
+2. **Figure 2:** Pattern Analysis - Monthly trends for temperature, wind speed, rain, and pressure with correlation heatmap
+3. **Figure 3:** Model Performance - Model comparison, predictions vs actual, and feature importance
 
 ---
 
@@ -223,15 +223,15 @@ All visualizations are embedded throughout the report in their respective phases
 
 ### Model Interpretation
 
-**R² (Coefficient of Determination):** Represents the proportion of variance in air temperature explained by the model. XGBoost achieves 0.7653, meaning it explains approximately 77% of temperature variance.
+**R²:** Represents the proportion of variance in air temperature explained by the model. XGBoost achieves 0.7653, meaning it explains approximately 77% of temperature variance.
 
-**RMSE (Root Mean Squared Error):** Measures average prediction error in degrees Celsius. XGBoost's RMSE of 4.93°C, meaning predictions are typically within ~5°C of actual values.
+**RMSE:** Measures average prediction error in degrees Celsius. XGBoost's RMSE of 4.93°C, meaning predictions are typically within ~5°C of actual values.
 
-**MAE (Mean Absolute Error):** Average absolute difference between predicted and actual temperatures. XGBoost's MAE of 3.75°C shows the average prediction error.
+**MAE:** Average absolute difference between predicted and actual temperatures. XGBoost's MAE of 3.75°C shows the average prediction error.
 
 ### Model Comparison
 
-XGBoost outperforms both Linear Regression and Random Forest. There is a minimal gap between training and test performance (Train R²: 0.8183 vs Test R²: 0.7653), meaning there is good generalization without overfitting. Random Forest shows moderate performance with great generalization (nearly identical train/test scores). Linear Regression underperforms, suggesting a potential of non-linear relationships in the data.
+XGBoost performs better than both Linear Regression and Random Forest. With the XGBoost model, there is a minimal gap between training and test performance (Train R²: 0.8183 vs Test R²: 0.7653), meaning there is good generalization without overfitting. Random Forest shows moderate performance with great generalization (nearly identical train/test scores). Linear Regression underperforms, suggesting a potential of non-linear relationships in the data.
 
 ---
 
@@ -239,7 +239,8 @@ XGBoost outperforms both Linear Regression and Random Forest. There is a minimal
 
 ### Trends Over Time
 
-Air temperature shows clear seasonal patterns with strong yearly cycles, with higher temperatures in summer months, peaking around 20-25°C. Winter saw lower temperatures, dropping to approximately 0-5°C. Wind speed shows a gradual decreasing trend over the 10-year period. Wind patterns show moderate seasonal variation with slightly higher speeds in winter months. Total rainfall is highly variable, with several extreme rainfall events visible, particularly in 2016-2018 period (400+ mm). However, rainfall frequency and intensity appear to decrease in later years (2020-2026). Barometric pressure remains relatively stable throughout the period, fluctuating within a narrow range of approximately 990-1000 hPa.
+Air temperature shows seasonal patterns and yearly cycles, with higher temperatures in summer months, peaking around 20-25°C. Winter saw lower temperatures, dropping to around 0-5°C. Wind speed shows a gradual decreasing trend over the 10-year period. Wind patterns show variation by season with slightly higher speeds in winter months. Total rainfall is variable, with several extreme rainfall events, such as in 2016-2018 period (400+ mm). However, rainfall frequency and intensity decrease in later years (2020-2026). Barometric pressure remains relatively stable throughout, fluctuating within a narrow range of approximately 990-1000 hPa.
+
 
 ### Seasonal Patterns
 
@@ -258,7 +259,7 @@ Strongest Negative Correlations:
 
 ### Interesting Features
 
-Several extreme rainfall events were visible, particularly in the 2016-2018 period (400+ mm). Rainfall frequency and intensity appear to decrease in later years (2020-2026).
+Several extreme rainfall events were observed, particularly between 2016-2018(400+ mm). However, rainfall frequency and intensity seem to decrease in later years (2020-2026).
 
 ---
 
