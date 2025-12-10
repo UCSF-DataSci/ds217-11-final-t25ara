@@ -1,0 +1,36 @@
+ KEY FINDINGS SUMMARY
+            ===========================
+            MODEL PERFORMANCE:
+            -Best Performing Model: XGBoost (R^2 = 0.2844)
+            -All models show not that great performance (R^2 <0.3)
+            -Random Forest performs the worst (R^2 = 0.1171)
+            -Linear Regression achieves moderate performance (R^2)= 0.1790
+            -There was overfitting, numbers of trees were reduced to try and improve this,
+            features were also removed to try and improve overfitting
+
+
+            FEATURE IMPORTANCE:
+            -Most important feature: Total rain (importance ~0.40)
+            -Wind speed and solar radiation didn't do much (importance <0.1)
+            -barometic pressure and total rain were most important in the models decision making
+
+            TEMPORAL PATTERNS:
+            -linear relationship between features and temperature is weak
+            -models struggled to capture the temeprature variability
+            -suggests there may be a non-linear relationship that the current features are not good at explaining
+
+            DATA QUALITY:
+            -Data set processed, there was no duplicates so none were removed
+            -there was extensive missing dat that was handled
+             * Air Temperature: 75 missing values (Forward Fill)
+            * Barometric Pressure: 146 missing values (Forward Fill)
+            * Rain-related features: 75,981 missing values (Filled with 0)
+            * Solar Radiation: 13,425 missing values (Mean imputation)
+            * Wind Speed features: 5 missing values (Forward Fill)
+            - Outlier handling performed on:
+            * Solar Radiation: Negative values replaced and interpolated
+            * Wind Speed/Max Wind Speed: Sentinel values (999.9) removed
+            * Barometric Pressure: Values outside [900, 1100] hPa range corrected
+            * Interval Rain: Negative values corrected
+            - A lot of missing rain data (75,981 values) suggests periods without precipitation monitoring or no rain
+                        
