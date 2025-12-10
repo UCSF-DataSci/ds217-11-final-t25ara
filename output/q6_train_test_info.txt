@@ -4,5 +4,5 @@
             Test Set Size: 100002 samples
             Training date range:2015-04-25 09:00:00 to 2022-11-03 03:00:00
             Test date range:2022-11-03 05:00:00 to 2025-12-04 20:00:00
-            Number of Features 24
+            Number of Features: 4
             Target Variable: Total Rain
