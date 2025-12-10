@@ -1,23 +1,23 @@
  KEY FINDINGS SUMMARY
             ===========================
             MODEL PERFORMANCE:
-            -Best Performing Model: XGBoost (R^2 = 0.2844)
-            -All models show not that great performance (R^2 <0.3)
-            -Random Forest performs the worst (R^2 = 0.1171)
-            -Linear Regression achieves moderate performance (R^2)= 0.1790
-            -There was overfitting, numbers of trees were reduced to try and improve this,
-            features were also removed to try and improve overfitting
-
+            -Best performing model: XGBoost (R² = 0.7653)
+            -XGBoost achieves lowest RMSE: 4.93°C and MAE: 3.75°C
+            -Random Forest shows good performance (R² = 0.6337) with RMSE: 6.16°C and MAE: 4.77°C
+            -Linear Regression performs adequately (R² = 0.2285) with RMSE: 8.94°C and MAE: 7.35°C
+            -Minimal overfitting observed, Train and Test R² values are closely aligned across all models
 
             FEATURE IMPORTANCE:
-            -Most important feature: Total rain (importance ~0.40)
-            -Wind speed and solar radiation didn't do much (importance <0.1)
-            -barometic pressure and total rain were most important in the models decision making
+            -Most important feature: Month (importance: 0.6699)
+            -Second most important:  Total rain (importance: 0.1329)
+            -Wind Speed, Solar radiation, and Wind Direction have minor contributions (importance <0.1)
+            -Top three features account for 89% of total importance
 
             TEMPORAL PATTERNS:
-            -linear relationship between features and temperature is weak
-            -models struggled to capture the temeprature variability
-            -suggests there may be a non-linear relationship that the current features are not good at explaining
+            -Strong seasonal patterns, month feature has 67% importance
+            -Models are able to capture temperature variability
+            -Model predict temperature withithin roughly ~4-6°C ranges
+            -Time of yeat is more predictive than other weather conditions
 
             DATA QUALITY:
             -Data set processed, there was no duplicates so none were removed

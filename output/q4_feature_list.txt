@@ -1,5 +1,5 @@
-air_temp_rolling_24hr_mean
-air_temp_rolling_24hr_std
+total_rain_rolling_24hr_mean
+total_rain_rolling_24hr_std
 wind_speed_rolling_24_mean
 wind_speed_rolling_24_std
 Humidity_rolling_24_mean

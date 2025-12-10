@@ -2,16 +2,16 @@ MODEL PERFORMANCE METRICS
 ======================== 
 LINEAR REGRESSION:
               Metric Training    Test
-0   RMSE     8.72    9.22
-1    MAE     7.16    7.77
-2     R²   0.3116  0.1790
+0   RMSE     8.30    8.94
+1    MAE     6.76    7.35
+2     R²   0.3765  0.2285
 XG Boost:
               Metric Training    Test
-0   RMSE     7.58    8.61
-1    MAE     5.98    7.06
-2     R²   0.4791  0.2844
+0   RMSE     4.48    4.93
+1    MAE     3.45    3.75
+2     R²   0.8183  0.7653
 RANDOM FOREST:
               Metric Training    Test
-0   RMSE     8.80    9.56
-1    MAE     7.06    7.95
-2     R²   0.2995  0.1171
+0   RMSE     6.27    6.16
+1    MAE     4.86    4.77
+2     R²   0.6442  0.6337
